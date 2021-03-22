@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/c06d34ad66.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Speed Typing Game</title>
+</head>
+
+<body>
+  <button class="settings-btn" id="settings-btn">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div class="settings" id="settings">
+    <form id="settings-form">
+      <div>
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2>Speed Typer</h2>
+    <small>Type the following:</small>
+
+    <h1 id="word"></h1>
+
+    <input type="text" id="text" autocomplete="off" placeholder="Type the word here...">
+
+    <p class="time-container">
+      Time left: <span id="time">10s</span>
+    </p>
+
+    <p class="score-container">
+      Score: <span id="score">0</span>
+    </p>
+
+    <!-- 
+      Container, position absolute, place it over everything for when we end the game
+      It will tell us out score,
+      It will have a reload button...
+      Inserted witing JS
+     -->
+    <div class="end-game-container" id="end-game-container"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
