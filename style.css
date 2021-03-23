@@ -5,46 +5,50 @@
 }
 
 :root {
-  --primary-color: #610b2c;
-  --secondary-color: #fc9d9d;
-  --tertiary-color: #ffcac2;
-  /* --quaternary-color: #f4f6ff; */
+  --primary-color: #2c061f;
+  --secondary-color: #374045;
+  --tertiary-color: #d89216;
+  --quaternary-color: #e1d89f;
 }
 
 body {
   background-color: var(--primary-color);
+  color: var(--tertiary-color);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
-  color: var(--tertiary-color);
 }
 
 button {
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
   border-radius: 5px;
   padding: 6px 16px;
   border: none;
+  color: var(--primary-color);
+  background-color: var(--quaternary-color);
 }
 
 select {
   font-size: 14px;
+  font-weight: bold;
   width: 200px;
   padding: 6px 8px;
   appearance: none;
   cursor: pointer;
   border-radius: 0;
   border: none;
-  background-color: var(--tertiary-color);
+  background-color: var(--quaternary-color);
   color: var(--primary-color);
 }
 
 select:focus,
 button:focus {
-  outline: 0;
+  outline-color: var(--tertiary-color);
 }
 
 .settings-btn {
@@ -78,7 +82,7 @@ button:focus {
 
 .container {
   background-color: var(--secondary-color);
-  color: var(--primary-color);
+  color: var(--quaternary-color);
   padding: 20px;
   border-radius: 4px;
   box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.5);
@@ -88,25 +92,32 @@ button:focus {
 }
 
 h2 {
-  background-color: rgba(0, 0, 0, 0.23);
+  background-color: rgba(44, 6, 31, 0.9);
+  color: var(--tertiary-color);
   padding: 8px;
   border-radius: 4px;
   margin: 0 0 40px;
 }
 
-
 h1 {
   margin: 0;
-  color: yellow;
+  color: var(--tertiary-color);
 }
 
 input {
   border: 0;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: bolder;
   width: 300px;
-  padding: 12px 20px;
+  padding: 10px 20px;
   margin-top: 10px;
+  color: var(--primary-color);
+  /* background-color: #ddd; */
+}
+
+input:focus {
+  outline-color: var(--tertiary-color);
 }
 
 .score-container {
@@ -121,10 +132,10 @@ input {
   left: 20px;
 }
 
-/* .end-game-container { */
-  /* background-color: inherit; */
+.end-game-container {
+  background-color: inherit;
   /* when time to display withing JS then flex */
-  /* display: none;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -134,4 +145,4 @@ input {
   width: 100%;
   height: 100%;
   z-index: 1;
-} */
+}
