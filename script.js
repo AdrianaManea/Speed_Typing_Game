@@ -22,7 +22,9 @@ let time = 10;
 let difficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
 
 // Set difficulty select value
-difficultySelect.value = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
+// difficultySelect.value = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
+// or
+difficultySelect.value = difficulty;
 
 // Focus on text on Start
 text.focus();
@@ -72,7 +74,7 @@ function updateTime() {
     document.getElementById('difficulty').disabled = true;
   }
 
-  // Reactivate the difficultu selection once the game is over
+  // Reactivate the difficulty selection once the game is over
   if (time === 0) {
     document.getElementById('difficulty').disabled = false;
   }
@@ -80,6 +82,8 @@ function updateTime() {
   // When less than 6s, change time color
   if (time < 6) {
     timeEl.style.color = "#ff0000";
+  } else {
+    timeEl.style.color = "#e1d89f";
   }
 
   if (time === 0) {
