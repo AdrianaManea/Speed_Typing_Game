@@ -5,6 +5,7 @@ const wordEl = document.getElementById('word'),
   endgameEl = document.getElementById('end-game-container'),
   settingsBtn = document.getElementById('settings-btn'),
   settings = document.getElementById('settings'),
+  settingsForm = document.getElementById('settings-form'),
   difficultySelect = document.getElementById('difficulty');
 
 
@@ -15,6 +16,13 @@ let score = 0;
 
 // Init time
 let time = 10;
+
+// Set difficulty to value in localStorage or medium
+// let difficulty = 'medium';
+let difficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
+
+// Set difficulty select value
+difficultySelect.value = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
 
 // Focus on text on Start
 text.focus();
@@ -59,6 +67,21 @@ function updateTime() {
   time--;
   timeEl.innerHTML = time + 's';
 
+  // Prevent to change de difficulty while playing
+  if (time < 15) {
+    document.getElementById('difficulty').disabled = true;
+  }
+
+  // Reactivate the difficultu selection once the game is over
+  if (time === 0) {
+    document.getElementById('difficulty').disabled = false;
+  }
+
+  // When less than 6s, change time color
+  if (time < 6) {
+    timeEl.style.color = "#ff0000";
+  }
+
   if (time === 0) {
     clearInterval(timeInterval);
 
@@ -90,7 +113,15 @@ function Typing(e) {
     e.target.value = '';
     getRandomWord();
 
-    time += 6;
+    // time += 2;
+    if (difficulty === 'hard') {
+      time += 3;
+    } else if (difficulty === 'medium') {
+      time += 5;
+    } else {
+      time += 8;
+    }
+
     updateTime();
   }
 }
@@ -100,8 +131,17 @@ function Typing(e) {
 // Typing 
 text.addEventListener('input', Typing);
 
+// Settings btn click
+settingsBtn.addEventListener('click', () => {
+  settings.classList.toggle('hide');
+});
 
-
+// Settings select
+settingsForm.addEventListener('change', e => {
+  difficulty = e.target.value;
+  // console.log(difficulty);
+  localStorage.setItem('difficulty', difficulty);
+});
 
 
 
