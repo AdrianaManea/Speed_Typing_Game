@@ -4,7 +4,7 @@ Game to beat the clock by typing random words
 
 ## Project Specifications
 
-- Create game UI including a difficuly setting
+- Create game UI including a difficulty setting
 - Adding random API and showing it in DOM
 - Score increase after word is typed
 - Implement timer
